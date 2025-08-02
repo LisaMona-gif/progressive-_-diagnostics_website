@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Why Choose Us | Progressive Diagnostic</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0056b3;
+      --primary-dark: #003d82;
+      --secondary: #FF6B35;
+      --accent: #FF6B35;
+      --white: #ffffff;
+      --light: #f8f9fa;
+      --dark: #222;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #ffffff;
+      color: var(--dark);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    /* Header */
+    .header {
+      background: var(--white);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo img {
+            height: auto;
+            width: 240px;
+            transition: var(--transition);
+        }
+
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    nav ul li a {
+      font-weight: 600;
+      padding-bottom: 4px;
+      border-bottom: 2px solid transparent;
+      transition: border 0.3s;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* Hero Banner */
+    .hero {
+      background: linear-gradient(to right, #003d82, #0056b3);
+      padding: 80px 20px;
+      color: white;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #f0f0f0;
+    }
+
+    /* Why Choose Us Section */
+    .why-choose-us {
+      background: linear-gradient(to right, #003d82, #0056b3);
+      color: white;
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .section-title-white {
+      font-size: 2.5rem;
+      margin-bottom: 50px;
+      color: white;
+      position: relative;
+    }
+
+    .section-title-white::after {
+      content: '';
+      width: 80px;
+      height: 4px;
+      background-color: var(--accent);
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .feature-card {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 15px;
+      padding: 2rem;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .feature-card i {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 15px;
+    }
+
+    .feature-card h3 {
+      color: white;
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+    }
+
+    .feature-card p {
+      color: #f0f0f0;
+      font-size: 1rem;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--primary-dark);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .footer p {
+      margin: 0;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="assets/img/logo.webp" alt="Progressive Diagnostic Logo" />
+      </a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="why-choose-us.html" class="active">Why Choose Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1>Why Choose Progressive Diagnostic?</h1>
+      <p>Precision. Compassion. Excellence.</p>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="why-choose-us">
+    <div class="container">
+      <h2 class="section-title-white">Our Key Strengths</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <i class="fas fa-microscope"></i>
+          <h3>State-of-the-Art Lab</h3>
+          <p>We use advanced diagnostics and internationally certified equipment.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-user-md"></i>
+          <h3>Expert Healthcare Team</h3>
+          <p>Our team includes certified pathologists, doctors, and trained staff.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-stopwatch"></i>
+          <h3>Fast & Reliable Results</h3>
+          <p>We value your time with efficient turnaround and accurate results.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-hand-holding-heart"></i>
+          <h3>Patient-Centered Care</h3>
+          <p>We treat every patient with compassion, transparency, and respect.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2024 Progressive Diagnostic Health Center. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

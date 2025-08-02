@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progressive Diagnostic Health Center | Trusted Healthcare in Harare</title>
+    <meta name="description" content="Accurate diagnostic and clinical services in Harare. State-of-the-art lab, expert team, and compassionate care.">
+    <!-- Preload critical assets -->
+    <link rel="preload" href="assets/img/hero-lab.webp" as="image">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Favicon -->
+    <link rel="icon" href="assets/img/favicon.webp">
+    <style>
+        /* ===== COLOR SCHEME ===== */
+        :root {
+            --primary: #0056b3;
+            --primary-dark: #003d82;
+            --secondary: #FF6B35;
+            --accent: #FF6B35;
+            --light: #f8f9fa;
+            --dark: #333333;
+            --gray: #6c757d;
+            --white: #ffffff;
+        }
+
+        /* ===== BASE STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        a {
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 86, 179, 0.2);
+        }
+
+        .btn-secondary {
+            background-color: var(--white);
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-accent {
+            background-color: var(--accent);
+            color: var(--white);
+        }
+
+        .btn-accent:hover {
+            background-color: #e05a2b;
+            transform: translateY(-2px);
+        }
+
+        .btn-white {
+            background-color: var(--white);
+            color: var(--accent);
+        }
+
+        .btn-white:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo img {
+            height: auto;
+            width: 240px;
+            transition: var(--transition);
+        }
+
+
+        .nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav ul li {
+            margin-left: 30px;
+        }
+
+        .nav ul li a {
+            color: var(--dark);
+            font-weight: 600;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary);
+            transition: width 0.3s ease;
+        }
+
+        .nav ul li a:hover::after,
+        .nav ul li a.active::after {
+            width: 100%;
+        }
+
+        .nav ul li a.active {
+            color: var(--secondary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--secondary);
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('assets/img/hero-lab.webp') no-repeat center/cover;
+            filter: blur(4px);
+            z-index: -2;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 86, 179, 0.7);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hero-scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .hero-scroll-down a {
+            color: var(--white);
+            font-size: 1.5rem;
+            display: block;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        /* ===== HIGHLIGHTS SECTION ===== */
+        .highlights {
+            padding: 100px 0;
+            background: linear-gradient(to right, #e6f0ff, #ffffff);
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.2rem);
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+            border-radius: 2px;
+        }
+
+        .highlight-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 8px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
+            transition: all 0.4s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-icon {
+            width: 80px;
+            height: 80px;
+            background-color: rgba(255, 107, 53, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .card-icon i {
+            font-size: 2rem;
+            color: var(--secondary);
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .card p {
+            color: var(--gray);
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about {
+            position: relative;
+            padding: 100px 0;
+            background: linear-gradient(rgba(0, 86, 179, 0.85), rgba(0, 86, 179, 0.85)),
+                        url('assets/img/ABOUT\ -US.webp') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            color: white;
+        }
+
+        .about .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-content {
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 40px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: white;
+            position: relative;
+        }
+
+        .about h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--secondary);
+        }
+
+        .about p {
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .about-features {
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        .about-features li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .about-features i {
+            color: var(--secondary);
+        }
+
+        /* ===== EMERGENCY CTA ===== */
+        .emergency-cta {
+            background-color: var(--accent);
+            color: var(--white);
+            padding: 30px 0;
+        }
+
+        .emergency-cta .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .emergency-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .emergency-content i {
+            font-size: 1.5rem;
+        }
+
+        .emergency-content h3 {
+            margin-bottom: 5px;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 70px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-col img {
+            height: 60px;
+            width: auto;
+            max-width: 240px;
+            margin-bottom: 20px;
+        }
+
+        .footer-col p {
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            width: 36px;
+            height: 36px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .footer-col h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+            color: var(--white);
+        }
+
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+            padding-left: 5px;
+        }
+
+        .contact-info li, .opening-hours li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .contact-info i, .opening-hours i {
+            width: 20px;
+            text-align: center;
+            color: var(--secondary);
+        }
+
+        .opening-hours span {
+            margin-left: auto;
+            font-weight: 600;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.3s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.6s;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .bounce-in {
+            opacity: 0;
+            transform: scale(0.8);
+            animation: bounceIn 0.8s forwards;
+        }
+
+        .bounce-in.delay-1 {
+            animation-delay: 0.3s;
+        }
+
+        .bounce-in.delay-2 {
+            animation-delay: 0.6s;
+        }
+
+        @keyframes bounceIn {
+            0% { opacity: 0; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.05); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 992px) {
+            .about .container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .about-content {
+                padding-left: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                background-color: var(--white);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                transition: all 0.3s ease;
+                padding: 20px 0;
+            }
+            .nav.active {
+                left: 0;
+            }
+            .nav ul {
+                flex-direction: column;
+                padding: 0 20px;
+            }
+            .nav ul li {
+                margin: 15px 0;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .hero-content {
+                padding: 30px 20px;
+            }
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+            .emergency-cta .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .about {
+                background-attachment: scroll;
+                padding: 60px 0;
+            }
+            .about-content {
+                max-width: 100%;
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .highlight-cards {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .about h2 {
+                font-size: 2rem;
+            }
+            .about-content {
+                padding: 25px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="assets/img/logo.webp" alt="Progressive Diagnostic Health Center Logo" width="240">
+            </a>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="why-choose-us.html">Why Choose Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="fade-in">Precision Diagnostics, Compassionate Care</h1>
+                <p class="fade-in delay-1">Harare's trusted partner for accurate lab results and comprehensive clinical services.</p>
+                <div class="hero-btns fade-in delay-2">
+                    <a href="contact.html" class="btn btn-accent"><i class="fas fa-calendar-check"></i> Book Appointment</a>
+                    <a href="tel:+26324225556" class="btn btn-secondary"><i class="fas fa-phone-alt"></i> Call Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll-down">
+            <a href="#highlights" aria-label="Scroll down"><i class="fas fa-chevron-down bounce"></i></a>
+        </div>
+    </section>
+
+    <!-- Key Highlights -->
+    <section class="highlights" id="highlights">
+        <div class="container">
+            <h2 class="section-title">Why Progressive Diagnostic?</h2>
+            <div class="highlight-cards">
+                <div class="card bounce-in">
+                    <div class="card-icon">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <h3>Advanced Lab Technology</h3>
+                    <p>Cutting-edge equipment for precise and reliable test results.</p>
+                </div>
+                <div class="card bounce-in delay-1">
+                    <div class="card-icon">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <h3>Expert Specialists</h3>
+                    <p>Board-certified pathologists and healthcare professionals.</p>
+                </div>
+                <div class="card bounce-in delay-2">
+                    <div class="card-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Fast Turnaround</h3>
+                    <p>Timely results to support quick clinical decisions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <div class="about-content">
+                <h2>About Us</h2>
+                <p>Since our founding, Progressive Diagnostic Health Center has been committed to delivering exceptional diagnostic services in Harare. In 2024, we expanded to offer integrated clinical care, providing end-to-end healthcare solutions under one roof.</p>
+                
+                <ul class="about-features">
+                    <li><i class="fas fa-check-circle"></i> ISO-certified quality standards</li>
+                    <li><i class="fas fa-check-circle"></i> Serving major hospitals and clinics</li>
+                    <li><i class="fas fa-check-circle"></i> Compassionate patient-centered care</li>
+                </ul>
+                
+                <a href="why-choose-us.html" class="btn btn-accent">Our Values <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency CTA -->
+    <section class="emergency-cta">
+        <div class="container">
+            <div class="emergency-content">
+                <i class="fas fa-exclamation-triangle"></i>
+                <div>
+                    <h3>Need urgent testing?</h3>
+                    <p>Same-day results available for critical cases.</p>
+                </div>
+            </div>
+            <a href="tel:+263777889493" class="btn btn-white"><i class="fas fa-phone-alt"></i> Emergency Contact</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <img src="assets/img/logo.webp" alt="Progressive Diagnostic Logo" width="160" loading="lazy">
+                    <p>Your trusted partner in diagnostic healthcare since 2010.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="Why-choose-us.html">why-choose-us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> 27 Baines Avenue, Harare</li>
+                        <li><i class="fas fa-phone-alt"></i> +263 242 25556</li>
+                        <li><i class="fas fa-envelope"></i> info@progressivediagnostic.co.zw</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Opening Hours</h4>
+                    <ul class="opening-hours">
+                        <li>Mon-Fri: <span>8:00 AM - 6:00 PM</span></li>
+                        <li>Sat: <span>9:00 AM - 1:00 PM</span></li>
+                        <li>Sun: <span>Closed</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Progressive Diagnostic Health Center. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const nav = document.querySelector('.nav');
+
+            mobileMenuBtn.addEventListener('click', () => {
+                nav.classList.toggle('active');
+                mobileMenuBtn.innerHTML = nav.classList.contains('active') ? 
+                    '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+                mobileMenuBtn.setAttribute('aria-expanded', nav.classList.contains('active'));
+            });
+
+            // Close mobile menu when clicking a link
+            document.querySelectorAll('.nav ul li a').forEach(link => {
+                link.addEventListener('click', () => {
+                    nav.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                });
+            });
+
+            // Header scroll effect
+            window.addEventListener('scroll', () => {
+                const header = document.querySelector('.header');
+                header.classList.toggle('scrolled', window.scrollY > 50);
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Animation on Scroll with Intersection Observer
+            const animateElements = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        if (entry.target.classList.contains('fade-in')) {
+                            entry.target.style.transform = 'translateY(0)';
+                        } else if (entry.target.classList.contains('bounce-in')) {
+                            entry.target.style.transform = 'scale(1)';
+                        }
+                        observer.unobserve(entry.target);
+                    }
+                });
+            };
+
+            const observer = new IntersectionObserver(animateElements, {
+                threshold: 0.1
+            });
+
+            document.querySelectorAll('.fade-in, .bounce-in').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Image hover zoom effect
+            document.querySelectorAll('.zoom-effect').forEach(imgContainer => {
+                const img = imgContainer.querySelector('img');
+                imgContainer.addEventListener('mouseenter', () => {
+                    img.style.transform = 'scale(1.05)';
+                });
+                
+                imgContainer.addEventListener('mouseleave', () => {
+                    img.style.transform = 'scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

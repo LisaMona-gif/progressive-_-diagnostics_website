@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Services | Progressive Diagnostic</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="preload" href="assets/img/hero_bg.webp" as="image" />
+
+  <style>
+    :root {
+      --primary: #0056b3;
+      --primary-light: #e6f0ff;
+      --secondary: #FF6B35;
+      --white: #ffffff;
+      --dark: #2a2d36;
+      --gray: #6c757d;
+      --shadow: 0 5px 15px rgba(0, 86, 179, 0.1);
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    /* Base Styles */
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: var(--dark);
+      line-height: 1.6;
+      background-color: var(--white);
+      padding-top: 80px;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background-color: var(--white);
+      box-shadow: var(--shadow);
+      padding: 15px 0;
+      transition: var(--transition);
+    }
+
+    .header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo img {
+      width: 240px;
+      transition: var(--transition);
+    }
+
+    .nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    .nav li {
+      margin-left: 30px;
+    }
+
+    .nav a {
+      color: var(--dark);
+      text-decoration: none;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      position: relative;
+      padding: 5px 0;
+      transition: var(--transition);
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      color: var(--primary);
+    }
+
+    .nav a::after,
+    .nav a.active::after,
+    .nav a:hover::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--secondary);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: var(--transition);
+    }
+
+    .nav a.active::after,
+    .nav a:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--dark);
+      cursor: pointer;
+    }
+
+    /* Page Hero Section */
+    .page-hero {
+      position: relative;
+      height: 80vh;
+      min-height: 500px;
+      background-color: #fff;
+      overflow: hidden;
+    }
+
+    .page-hero .container {
+      display: flex;
+      height: 100%;
+      padding-left: 5%;
+      max-width: 100%;
+    }
+
+    .page-hero .container > div:first-child {
+      flex: 0 0 45%;
+      padding-right: 5%;
+      z-index: 2;
+      align-self: center;
+    }
+
+    .page-hero h1 {
+      color: #FF6B00;
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+    }
+
+    .page-hero p {
+      font-size: 1.3rem;
+      color: var(--dark);
+    }
+
+    .page-hero .container > div:last-child {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 50%;
+      z-index: 1;
+    }
+
+    .page-hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .page-hero .container > div:last-child::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, #fff 0%, rgba(255,255,255,0) 20%);
+    }
+
+    /* Laboratory Services */
+    .lab-services {
+      padding: 80px 0;
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                  url('assets/img/laboratory-services.webp') center/cover no-repeat;
+      color: white;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      color: lightskyblue;
+      margin-bottom: 40px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .service-card {
+      background: var(--white);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      border-top: 4px solid var(--secondary);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+    }
+
+    .service-image {
+      height: 180px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .service-image::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,86,179,0.1), rgba(0,86,179,0.3));
+    }
+
+    .service-content {
+      padding: 25px;
+      position: relative;
+    }
+
+    .service-icon {
+      position: absolute;
+      top: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 60px;
+      background-color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      border: 3px solid var(--white);
+      color: var(--secondary);
+      font-size: 1.5rem;
+      transition: var(--transition);
+    }
+
+    .service-card:hover .service-icon {
+      transform: translateX(-50%) scale(1.1);
+      background-color: var(--secondary);
+      color: var(--white);
+    }
+
+    .service-card h3 {
+      margin: 25px 0 15px;
+      text-align: center;
+      font-size: 1.4rem;
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .service-card ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    .service-card li {
+      padding-left: 20px;
+      margin-bottom: 10px;
+      position: relative;
+      font-size: 0.95rem;
+      color: var(--dark);
+    }
+
+    .service-card li::before {
+      content: '';
+      position: absolute;
+      top: 8px;
+      left: 0;
+      width: 8px;
+      height: 8px;
+      background-color: var(--secondary);
+      border-radius: 50%;
+    }
+
+    /* Image Break */
+    .image-break {
+      height: 400px;
+      background: url('assets/img/page-break.webp') center/cover fixed;
+      position: relative;
+      margin: 80px 0;
+    }
+
+    .image-break-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 86, 179, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #3e86f3;
+    }
+
+    .image-break-content {
+      max-width: 800px;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .image-break h2 {
+      font-size: 2.5rem;
+    }
+
+    /* Clinical Services */
+    .clinical-services {
+      padding: 80px 20px;
+      background: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.95)),
+                  url('assets/img/clinical-bg.webp') center/cover no-repeat;
+    }
+
+    .clinical-card {
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
+      border-top: 4px solid;
+    }
+
+    .clinical-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .clinical-card.dental {
+      border-top-color: #4299e1;
+    }
+
+    .clinical-card.gyno {
+      border-top-color: #d53f8c;
+    }
+
+    .clinical-card.ortho {
+      border-top-color: #38a169;
+    }
+
+    .clinical-icon {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .clinical-card.dental .clinical-icon { color: #4299e1; }
+    .clinical-card.gyno .clinical-icon { color: #d53f8c; }
+    .clinical-card.ortho .clinical-icon { color: #38a169; }
+
+    .clinical-card h3 {
+      color: #2a4365;
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+    }
+
+    .clinical-card ul {
+      list-style: none;
+      padding: 0;
+      color: #4a5568;
+      line-height: 1.8;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      padding: 100px 0;
+      background: linear-gradient(135deg, var(--primary) 0%, #003d82 100%);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .cta-section p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 40px;
+      opacity: 0.9;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 15px 35px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+
+    .btn-primary {
+      background-color: var(--secondary);
+      color: var(--white);
+      box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+    }
+
+    .btn-primary:hover {
+      background-color: #e05a2b;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(255, 107, 53, 0.6);
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .nav {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: var(--white);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        padding: 20px 0;
+        transform: translateY(-150%);
+        opacity: 0;
+        transition: var(--transition);
+        z-index: 999;
+      }
+
+      .nav.active {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      .nav ul {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .nav li {
+        margin: 15px 0;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .logo img {
+        width: 200px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .page-hero {
+        height: auto;
+        padding: 60px 0;
+      }
+
+      .page-hero .container {
+        flex-direction: column;
+        padding-left: 20px;
+      }
+
+      .page-hero .container > div:first-child {
+        width: 100%;
+        margin-bottom: 30px;
+        padding-right: 20px;
+      }
+
+      .page-hero .container > div:last-child {
+        position: relative;
+        height: 300px;
+        width: 100%;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .image-break {
+        height: 300px;
+        background-attachment: scroll;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .page-hero h1 {
+        font-size: 2rem;
+      }
+
+      .page-hero p {
+        font-size: 1.1rem;
+      }
+
+      .cta-section h2 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body-
+    <!-- Header matching index.html -->
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="assets/img/logo.webp" alt="Progressive Diagnostic Health Center Logo" width="240">
+            </a>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html" class="active">Services</a></li>
+                    <li><a href="why-choose-us.html">Why Choose Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Services Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <div>
+                    <h1>Our Comprehensive Services</h1>
+                    <p>State-of-the-art diagnostic and clinical services tailored to your needs</p>
+                </div>
+                <div>
+                    <img src="assets/services.jpg" alt="Medical professionals">
+                </div>
+            </div>
+        </section>
+
+        <!-- Laboratory Services -->
+        <section class="lab-services">
+            <div class="container">
+                <h2 class="section-title">Laboratory Services</h2>
+                
+                <div class="services-grid">
+                    <!-- Hematology Card -->
+                    <div class="service-card">
+                        <div class="service-image hematology"></div>
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <i class="fas fa-tint"></i>
+                            </div>
+                            <h3>Hematology</h3>
+                            <ul>
+                                <li>• ANC screening</li>
+                                <li>• FBC</li>
+                                <li>• T-cell profile</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Clinical Chemistry Card -->
+                    <div class="service-card">
+                        <div class="service-image chemistry"></div>
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <i class="fas fa-flask"></i>
+                            </div>
+                            <h3>Clinical Chemistry</h3>
+                            <ul>
+                                <li>• Urea and electrolytes</li>
+                                <li>• Creatinine</li>
+                                <li>• LDH</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Immunochemistry Card -->
+                    <div class="service-card">
+                        <div class="service-image immuno"></div>
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <i class="fas fa-dna"></i>
+                            </div>
+                            <h3>Immunochemistry</h3>
+                            <ul>
+                                <li>• TFT</li>
+                                <li>• LH, FSH</li>
+                                <li>• Estrogen</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Serology Card -->
+                    <div class="service-card">
+                        <div class="service-image serology"></div>
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <i class="fas fa-virus"></i>
+                            </div>
+                            <h3>Serology</h3>
+                            <ul>
+                                <li>• HIV ELISA</li>
+                                <li>• HIV rapid tests</li>
+                                <li>• Viral load testing</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Microbiology Card -->
+                    <div class="service-card">
+                        <div class="service-image micro"></div>
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <i class="fas fa-microscope"></i>
+                            </div>
+                            <h3>Microbiology</h3>
+                            <ul>
+                                <li>• Urinalysis</li>
+                                <li>• Stool MCS</li>
+                                <li>• Swab tests</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Break Section -->
+        <div class="image-break">
+            <div class="image-break-overlay">
+                <div class="image-break-content">
+                    <h2>Precision Diagnostics with Cutting-Edge Technology</h2>
+                    <p>Our certified technicians use the latest equipment to deliver accurate results you can trust</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Clinical Services -->
+        <section class="clinical-services">
+            <div class="container">
+                <h2 class="section-title">Clinical Services</h2>
+                
+                <div class="services-grid">
+                    <!-- Dentistry Card -->
+                    <div class="clinical-card dental">
+                        <div class="clinical-icon">
+                            <i class="fas fa-tooth"></i>
+                        </div>
+                        <h3>Dentistry</h3>
+                        <ul>
+                            <li>Routine check-ups</li>
+                            <li>Cleanings</li>
+                            <li>Root canals</li>
+                            <li>Extractions</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Gynecology Card -->
+                    <div class="clinical-card gyno">
+                        <div class="clinical-icon">
+                            <i class="fas fa-female"></i>
+                        </div>
+                        <h3>Gynecology</h3>
+                        <ul>
+                            <li>Routine exams</li>
+                            <li>PCOS care</li>
+                            <li>Endometriosis</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Orthopedics Card -->
+                    <div class="clinical-card ortho">
+                        <div class="clinical-icon">
+                            <i class="fas fa-bone"></i>
+                        </div>
+                        <h3>Orthopedics</h3>
+                        <ul>
+                            <li>Fracture care</li>
+                            <li>Sprains</li>
+                            <li>Chronic pain</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>Ready to schedule your appointment?</h2>
+                <p>Our team is ready to provide you with exceptional care.</p>
+                <a href="contact.html" class="btn btn-primary">Book Now</a>
+                <a href="tel:+26324225556" class="btn" 
+                style="background: rgba(255,255,255,0.15); backdrop-filter: blur(5px); 
+                border: 1px solid rgba(255,255,255,0.2);">Call Now</a>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Mobile menu toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const nav = document.querySelector('.nav');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                nav.classList.toggle('active');
+                this.innerHTML = nav.classList.contains('active') 
+                    ? '<i class="fas fa-times"></i>' 
+                    : '<i class="fas fa-bars"></i>';
+            });
+            
+            // Simple animation for service cards
+            const cards = document.querySelectorAll('.service-card, .clinical-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'all 0.6s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+
+
+
